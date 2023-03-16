@@ -16,6 +16,6 @@ Future<void> main() async {
     var listElement = LIElement();
     listElement.text =
         m['name'] + ' ' + m['item'] + ' [' + m['lat'] + '] [' + m['lon'] + ']';
-    lista.children.add(listElement);
+    //lista.children.add(listElement);
   }
 }
