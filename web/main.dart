@@ -8,33 +8,64 @@ ButtonElement pulire_input = querySelector('#clear_input') as ButtonElement;
 ButtonElement pulire_output = querySelector('#clear_output') as ButtonElement;
 ButtonElement invio = querySelector('#invio') as ButtonElement;
 
-Future<void> main() async {
+void main() {
   invio.onClick.listen((Event e) {
     scrivi();
   });
-  //pulire textarea input ma non lo fa
+
+  void clearTextArea(TextAreaElement textArea) {
+    textArea.value = "";
+  }
+
   pulire.onClick.listen((Event e) {
-    input.children.clear();
-    output.children.clear();
+    clearTextArea(input);
+    clearTextArea(output);
   });
-  //pulire textarea input ma non lo fa
+
   pulire_input.onClick.listen((event) {
-    input.children.clear();
+    clearTextArea(input);
   });
 
   pulire_output.onClick.listen((event) {
-    output.children.clear();
+    clearTextArea(output);
   });
 }
 
-Future<void> scrivi() async {
+void processJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
+  jsonObject.forEach((key, value) {
+    final displayKey = key != null ? key : 'null';
+    final displayValue = value?.toString() ?? 'null';
+    output.value ??= '';
+    output.value = (output.value ?? '') + '$parentKey.$displayKey: $displayValue\n';
+  });
+}
+
+void processJsonArray(List<dynamic> jsonArray, String parentKey) {
+  for (int i = 0; i < jsonArray.length; i++) {
+    final item = jsonArray[i];
+    if (item is Map<String, dynamic>) {
+      processJsonObject(item, '$parentKey[$i]');
+    } else {
+      final displayValue = item?.toString() ?? 'null';
+      output.value ??= '';
+      output.value = (output.value ?? '') + '$parentKey[$i]: $displayValue\n';
+    }
+  }
+}
+
+void scrivi() {
   var contenutoJson = input.value as String;
-  var contenuto = jsonDecode(contenutoJson) as List<dynamic>;
-  for (int i = 0; i < contenuto.length; i++) {
-    var m = contenuto[i] as Map;
-    var lista = LIElement();
-    lista.text =
-      m['name'] + ' ' + m['item'] + ' [' + m['lat'] + '] [' + m['lon'] + ']';
-    output.appendText("${lista.text}\n");
+  try {
+    dynamic contenuto = jsonDecode(contenutoJson);
+    output.value = '';
+    if (contenuto is List) {
+      processJsonArray(contenuto, '');
+    } else if (contenuto is Map<String, dynamic>) {
+      processJsonObject(contenuto, '');
+    } else {
+      output.value = 'Il JSON non è né un oggetto né una lista.';
+    }
+  } catch (e) {
+    output.value = 'Errore durante il parsing JSON: $e';
   }
 }
