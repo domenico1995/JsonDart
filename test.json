@@ -1,0 +1,56 @@
+{
+    "azienda": "Acme Inc.",
+    "anno_di_fondazione": 1990,
+    "sede_principale": {
+      "città": "New York",
+      "via": "123 Main Street",
+      "cap": "10001"
+    },
+    "dipartimenti": [
+      {
+        "nome": "Sviluppo",
+        "responsabile": {
+          "nome": "Alice",
+          "cognome": "Rossi",
+          "posizione": "Direttore"
+        },
+        "impiegati": [
+          {
+            "nome": "Marco",
+            "cognome": "Verdi",
+            "posizione": "Programmatore",
+            "stipendio": 70000
+          },
+          {
+            "nome": "Laura",
+            "cognome": "Bianchi",
+            "posizione": "Sviluppatore Senior",
+            "stipendio": 90000
+          }
+        ]
+      },
+      {
+        "nome": "Marketing",
+        "responsabile": {
+          "nome": "Anna",
+          "cognome": "Gialli",
+          "posizione": "Direttore"
+        },
+        "impiegati": [
+          {
+            "nome": "Giuseppe",
+            "cognome": "Neri",
+            "posizione": "Marketing Manager",
+            "stipendio": 80000
+          },
+          {
+            "nome": "Elena",
+            "cognome": "Rosa",
+            "posizione": "Specialista SEO",
+            "stipendio": 75000
+          }
+        ]
+      }
+    ]
+  }
+  
