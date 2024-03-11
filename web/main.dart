@@ -36,8 +36,7 @@ void processJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
     final displayKey = key ?? 'null';
     final displayValue = value?.toString() ?? 'null';
     output.value ??= '';
-    output.value =
-        '${output.value ?? ''}$parentKey$displayKey: $displayValue\n';
+    output.value = '${output.value ?? ''}$displayKey: $displayValue\n';
   });
 }
 
