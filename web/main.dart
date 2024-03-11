@@ -33,10 +33,11 @@ void main() {
 
 void processJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
   jsonObject.forEach((key, value) {
-    final displayKey = key != null ? key : 'null';
+    final displayKey = key ?? 'null';
     final displayValue = value?.toString() ?? 'null';
     output.value ??= '';
-    output.value = (output.value ?? '') + '$parentKey.$displayKey: $displayValue\n';
+    output.value =
+        '${output.value ?? ''}$parentKey.$displayKey: $displayValue\n';
   });
 }
 
@@ -48,7 +49,7 @@ void processJsonArray(List<dynamic> jsonArray, String parentKey) {
     } else {
       final displayValue = item?.toString() ?? 'null';
       output.value ??= '';
-      output.value = (output.value ?? '') + '$parentKey[$i]: $displayValue\n';
+      output.value = '${output.value ?? ''}$parentKey[$i]: $displayValue\n';
     }
   }
 }
@@ -57,6 +58,7 @@ void scrivi() {
   var contenutoJson = input.value as String;
   try {
     dynamic contenuto = jsonDecode(contenutoJson);
+    print(contenuto);
     output.value = '';
     if (contenuto is List) {
       processJsonArray(contenuto, '');
