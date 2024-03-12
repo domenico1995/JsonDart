@@ -10,7 +10,9 @@ ButtonElement invio = querySelector('#invio') as ButtonElement;
 
 void main() {
   invio.onClick.listen((Event e) {
-    read();
+    var contenuto = input.value as String;
+    output.value = '';
+    read(contenuto);
   });
 
   void clearTextArea(TextAreaElement textArea) {
@@ -36,6 +38,9 @@ void processJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
     var displayKey = key ?? 'null';
     var displayValue = value?.toString() ?? 'null';
     output.value ??= '';
+    if (controllo(displayValue)) {
+      read(modificaTesto(displayValue));
+    }
     output.value = '${output.value ?? ''}$displayKey: $displayValue\n';
   });
 }
@@ -48,16 +53,17 @@ void processJsonArray(List<dynamic> jsonArray, String parentKey) {
     } else {
       final displayValue = item?.toString() ?? 'null';
       output.value ??= '';
+      if (controllo(displayValue)) {
+        read(modificaTesto(displayValue));
+      }
       output.value = '${output.value ?? ''}$parentKey[$i]: $displayValue\n';
     }
   }
 }
 
-void read() {
-  var contenutoJson = input.value as String;
+void read(String contenutoJson) {
   try {
     dynamic contenuto = jsonDecode(contenutoJson);
-    output.value = '';
     if (contenuto is List) {
       processJsonArray(contenuto, '');
     } else if (contenuto is Map<String, dynamic>) {
@@ -68,4 +74,37 @@ void read() {
   } catch (e) {
     print("errore");
   }
+}
+
+bool controllo(String testo) {
+  if (testo.contains("{") || testo.contains("[")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+String modificaTesto(String testo) {
+  String t = testo
+      .replaceAll(': ', '": "')
+      .replaceAll(', ', '", "')
+      .replaceAll(' {', ' {"')
+      .replaceAll('}', '"}')
+      .replaceAll('{', '{"')
+      .replaceAll('[', '["')
+      .replaceAll(']', '"]');
+
+  t = t
+      .replaceAll(': "{', ': {')
+      .replaceAll(': "[', ': [')
+      .replaceAll(', "{', ', {')
+      .replaceAll(']",', '],')
+      .replaceAll('}"]', '}]')
+      .replaceAll(']"}', ']}')
+      .replaceAll('}"', '}')
+      .replaceAll('""', '"')
+      .replaceAll('["{', '[{');
+
+  print(t);
+  return t;
 }
