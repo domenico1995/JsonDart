@@ -12,7 +12,7 @@ void main() {
   invio.onClick.listen((Event e) {
     var contenuto = input.value as String;
     output.value = '';
-    read(contenuto);
+    leggi(contenuto);
   });
 
   void clearTextArea(TextAreaElement textArea) {
@@ -33,41 +33,43 @@ void main() {
   });
 }
 
-void processJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
+void processoJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
   jsonObject.forEach((key, value) {
-    var displayKey = key ?? 'null';
+    var displayKey = key;
     var displayValue = value?.toString() ?? 'null';
-    output.value ??= '';
-    if (controllo(displayValue)) {
-      read(modificaTesto(displayValue));
+    if (controlloTesto(displayValue)) {
+      output.value = '${output.value ?? ''}$displayKey:\n';
+      leggi(modificaTesto(displayValue));
+    } else {
+      output.value = '${output.value ?? ''}$displayKey: $displayValue\n';
     }
-    output.value = '${output.value ?? ''}$displayKey: $displayValue\n';
   });
 }
 
-void processJsonArray(List<dynamic> jsonArray, String parentKey) {
+void processoJsonArray(List<dynamic> jsonArray, String parentKey) {
   for (int i = 0; i < jsonArray.length; i++) {
     var item = jsonArray[i];
     if (item is Map<String, dynamic>) {
-      processJsonObject(item, '$parentKey[$i]');
+      processoJsonObject(item, '$parentKey[$i]');
     } else {
       final displayValue = item?.toString() ?? 'null';
-      output.value ??= '';
-      if (controllo(displayValue)) {
-        read(modificaTesto(displayValue));
+      if (controlloTesto(displayValue)) {
+        output.value = '${output.value ?? ''}$parentKey [$i]:\n';
+        leggi(modificaTesto(displayValue));
+      } else {
+        output.value = '${output.value ?? ''}$parentKey [$i]: $displayValue\n';
       }
-      output.value = '${output.value ?? ''}$parentKey[$i]: $displayValue\n';
     }
   }
 }
 
-void read(String contenutoJson) {
+void leggi(String contenutoJson) {
   try {
     dynamic contenuto = jsonDecode(contenutoJson);
     if (contenuto is List) {
-      processJsonArray(contenuto, '');
+      processoJsonArray(contenuto, '');
     } else if (contenuto is Map<String, dynamic>) {
-      processJsonObject(contenuto, '');
+      processoJsonObject(contenuto, '');
     } else {
       output.value = 'Il JSON non è né un oggetto né una lista.';
     }
@@ -76,7 +78,7 @@ void read(String contenutoJson) {
   }
 }
 
-bool controllo(String testo) {
+bool controlloTesto(String testo) {
   if (testo.contains("{") || testo.contains("[")) {
     return true;
   } else {
@@ -105,6 +107,5 @@ String modificaTesto(String testo) {
       .replaceAll('""', '"')
       .replaceAll('["{', '[{');
 
-  print(t);
   return t;
 }
