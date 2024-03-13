@@ -12,7 +12,7 @@ void main() {
   invio.onClick.listen((Event e) {
     var contenuto = input.value as String;
     output.value = '';
-    leggi(contenuto);
+    leggi(contenuto, "");
   });
 
   void clearTextArea(TextAreaElement textArea) {
@@ -33,48 +33,62 @@ void main() {
   });
 }
 
-void processoJsonObject(Map<String, dynamic> jsonObject, String parentKey) {
-  jsonObject.forEach((key, value) {
-    var displayKey = key;
-    var displayValue = value?.toString() ?? 'null';
-    if (controlloTesto(displayValue)) {
-      output.value = '${output.value ?? ''}$displayKey:\n';
-      leggi(modificaTesto(displayValue));
-    } else {
-      output.value = '${output.value ?? ''}$displayKey: $displayValue\n';
-    }
-  });
-}
-
-void processoJsonArray(List<dynamic> jsonArray, String parentKey) {
-  for (int i = 0; i < jsonArray.length; i++) {
-    var item = jsonArray[i];
-    if (item is Map<String, dynamic>) {
-      processoJsonObject(item, '$parentKey[$i]');
-    } else {
-      final displayValue = item?.toString() ?? 'null';
-      if (controlloTesto(displayValue)) {
-        output.value = '${output.value ?? ''}$parentKey [$i]:\n';
-        leggi(modificaTesto(displayValue));
-      } else {
-        output.value = '${output.value ?? ''}$parentKey [$i]: $displayValue\n';
-      }
-    }
-  }
-}
-
-void leggi(String contenutoJson) {
+void leggi(String contenutoJson, String space) {
   try {
     dynamic contenuto = jsonDecode(contenutoJson);
     if (contenuto is List) {
-      processoJsonArray(contenuto, '');
+      processoJsonArray(contenuto, '', space);
     } else if (contenuto is Map<String, dynamic>) {
-      processoJsonObject(contenuto, '');
+      processoJsonObject(contenuto, '', space);
     } else {
       output.value = 'Il JSON non è né un oggetto né una lista.';
     }
   } catch (e) {
     print("errore");
+  }
+}
+
+void processoJsonObject(
+    Map<String, dynamic> jsonObject, String parentKey, String space) {
+  var s = "";
+  jsonObject.forEach((key, value) {
+    var displayValue = value?.toString() ?? 'null';
+    s = space;
+
+    if (controlloTesto(displayValue)) {
+      print('$space$key: \n');
+      output.value = '${output.value ?? ''}$space$key:\n';
+      space = '$space   ';
+      leggi(modificaTesto(displayValue), space);
+      space = s;
+    } else {
+      print('$space$key: $displayValue');
+      output.value = '${output.value ?? ''}$space$key: $displayValue\n';
+    }
+  });
+}
+
+void processoJsonArray(
+    List<dynamic> jsonArray, String parentKey, String space) {
+  var s = "";
+  for (int i = 0; i < jsonArray.length; i++) {
+    var item = jsonArray[i];
+    s = space;
+
+    if (item is Map<String, dynamic>) {
+      processoJsonObject(item, '$parentKey[$i]', space);
+    } else {
+      final displayValue = item?.toString() ?? 'null';
+      if (controlloTesto(displayValue)) {
+        output.value = '$space${output.value ?? ''}$parentKey:\n';
+        space = '$space   ';
+        leggi(modificaTesto(displayValue), space);
+        space = s;
+      } else {
+        print('$space$parentKey:$displayValue\n');
+        output.value = '${output.value ?? ''}$space$parentKey:$displayValue\n';
+      }
+    }
   }
 }
 
