@@ -9,6 +9,7 @@ ButtonElement pulireOutput = querySelector('#clear_output') as ButtonElement;
 ButtonElement invio = querySelector('#invio') as ButtonElement;
 
 void main() {
+  print("hello world");
   invio.onClick.listen((Event e) {
     var contenuto = input.value as String;
     output.value = '';

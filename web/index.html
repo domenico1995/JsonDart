@@ -1,36 +1,57 @@
 <!DOCTYPE html>
-
-<html lang="it">
-
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="scaffolded-by" content="https://github.com/dart-lang/sdk">
-    <title>jsondart</title>
+    <title>PARSING JSON</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-
   <body>
-    <!-- contiene le funzioni dart da usare -->
     <script defer src="main.dart.js"></script>
-    <!-- <ul> viene usata per visualizzare le informazioni -->
 
+    <div class="top-section">
+      <header>
+        <h1>
+          <span>Parsing Json</span>
+        </h1>
+      </header>
+    </div>
 
-    <label for="input">Input contenuto file json</label>
-    <br>
-    <textarea id="input" name="textAreaInput" rows="8" cols="100" ></textarea>
-    <br>
-    <br>
-    <label for="output">Output contenuto</label>
-    <br>
-    <textarea id="output" name="textAreaOutput" rows="8" cols="100"></textarea>
-    <br><br>
-    <button id="invio">Invio</button>
-    <button id="clear_all">Pulire tutto</button>
-    <button id="clear_input">Pulire input</button>
-    <button id="clear_output">Pulire output</button>
+    <div class="tabs-section">
+      <div class="tab">
+        <div class="code-actions">
+          <button class="button input" id="invio">Esegui</button>
+          <button class="button cancella" id="clear_all">Pulisci tutto</button>
+          <button class="button cancella" id="clear_input">Pulisci
+            Input</button>
+          <button class="button cancella" id="clear_output">Pulisci
+            Output</button>
+        </div>
+      </div>
+    </div>
 
+    <div id="container">
+      <textarea id="input"></textarea>
+      <div id="divider"></div>
+      <textarea id="output"></textarea>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyBRnnsTTPor1QiSYTQsiyNNT-xLGteF_NQ",
+        authDomain: "jsondart.firebaseapp.com",
+        projectId: "jsondart",
+        storageBucket: "jsondart.appspot.com",
+        messagingSenderId: "935251777974",
+        appId: "1:935251777974:web:e29149c2896c4f67c44917",
+        measurementId: "G-8NKJZVWG13"
+      };
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    
   </body>
-
 </html>

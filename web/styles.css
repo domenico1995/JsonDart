@@ -1,10 +1,104 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-html, body {
-  width: 100%;
-  height: 100%;
+body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  height: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.top-section {
+  padding: 30px 0 16px;
+  display: flex;
+  background-color: rgb(31, 54, 54);
+  flex-direction: column;
+  width: 100%;
+}
+
+#container {
+  display: flex;
+  height: 100%;
+}
+
+textarea {
+  width: 100%; 
+  height: 100vh; 
+  padding: 20px 20px 40px 30px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #eee;
+  background: darkslategray;
+  border: 0;
+  overflow-y: auto; 
+  overflow-x: auto; 
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  resize: none;
+  box-sizing: border-box;
+}
+
+#divider {
+  width: 3px;
+  cursor: ew-resize;
+  background-color: rgb(28, 46, 46);
+}
+
+.tabs-section {
+  background-color: rgb(42, 70, 70);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.tab h2 {
+  font-family: 'Iosevka Web', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 11px 30px;
+  margin: 0;
+  color: white;
+}
+
+h1 {
+  font-family: 'Iosevka Web', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 28px;
+  padding: 11px 30px;
+  margin: 0;
+  color: white;
+}
+
+.code-actions {
+  display: flex;
+  align-items: center;
+}
+
+.code-actions .button {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 6px;
+  color: #333333;
+  user-select: none;
+  margin-right: 14px;
+  width: auto;
+  font-weight: 600;
+  height: 30px;
+  border: 0;
+  font: 'Iosevka Web';
+  transition: all 0.1s ease;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgb(42, 70, 70);
+}
+
+textarea::-webkit-scrollbar, textarea::-webkit-scrollbar-track {
+  width: 6px;
+  background-color: rgba(0, 0, 0, 0.1)
+}
