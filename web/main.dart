@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'utils/conversion.dart';
 import 'utils/format.dart';
+import 'utils/aprifile.dart';
 
 TextAreaElement input = querySelector('#input') as TextAreaElement;
 TextAreaElement output = querySelector('#output') as TextAreaElement;
@@ -8,6 +9,7 @@ ButtonElement pulire = querySelector('#clear_all') as ButtonElement;
 ButtonElement invio = querySelector('#invio') as ButtonElement;
 ButtonElement conversione = querySelector('#conversione') as ButtonElement;
 ButtonElement formattazione = querySelector('#formattazione') as ButtonElement;
+ButtonElement apriFile = querySelector("#apriFile") as ButtonElement;
 
 void main() {
   invio.onClick.listen((Event e) {
@@ -32,6 +34,10 @@ void main() {
   });
 
   formattazione.onClick.listen((Event e) {
-    formatJSON(input, output);
+    formatJSON();
+  });
+
+  apriFile.onClick.listen((Event e) {
+    caricamentoFile();
   });
 }
