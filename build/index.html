@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PARSING JSON</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon-16x16.ico">
     <link rel="stylesheet" href="styles.css">
     <script src="firebase-setup.js" type="module"></script>
   </head>
@@ -21,23 +22,43 @@
     <div class="tabs-section">
       <div class="tab">
         <div class="code-actions">
-          <button class="button input" id="invio">Esegui</button>
-          <button class="button cancella" id="clear_all">Pulisci tutto</button>
-          <button class="button cancella" id="clear_input">Pulisci
+          <button class="button" id="invio">Esegui</button>
+          <button class="button" id="clear_all">Pulisci tutto</button>
+          <button class="button" id="clear_input">Pulisci
             Input</button>
-          <button class="button cancella" id="clear_output">Pulisci
+          <button class="button" id="clear_output">Pulisci
             Output</button>
         </div>
+      </div>
+      <div class="tab">
+        <button class="button">Formatta</button>
+        <button class="button">Albero</button>
+        <button class="button">Conversione</button>
       </div>
     </div>
 
     <div id="container">
-      <textarea id="input"></textarea>
+      <textarea id="input" spellcheck="false">
+[
+  {
+    "nome": "Marco",
+    "cognome": "Verdi",
+    "posizione": "Programmatore",
+    "stipendio": 70000
+  },
+  {
+    "nome": "Laura",
+    "cognome": "Bianchi",
+    "posizione": "Sviluppatore Senior",
+    "stipendio": 90000
+  }
+]
+      </textarea>
       <div id="divider"></div>
-      <textarea id="output"></textarea>
+      <textarea id="output" spellcheck="false"></textarea>
     </div>
 
     <script src="script.js"></script>
-    
+
   </body>
 </html>

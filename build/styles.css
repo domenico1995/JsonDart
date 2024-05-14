@@ -40,9 +40,9 @@ textarea {
 }
 
 #divider {
-  width: 3px;
+  width: 10px;
   cursor: ew-resize;
-  background-color: rgb(28, 46, 46);
+  background-color: rgb(42, 70, 70);
 }
 
 .tabs-section {
@@ -53,7 +53,9 @@ textarea {
   align-items: center;
   padding-left: 10px;
 }
-
+.tab {
+  width: 50%;
+}
 .tab h2 {
   font-family: 'Iosevka Web', sans-serif;
   font-weight: normal;
@@ -79,7 +81,7 @@ h1 {
   align-items: center;
 }
 
-.code-actions .button {
+.button{
   cursor: pointer;
   background-color: white;
   border-radius: 6px;

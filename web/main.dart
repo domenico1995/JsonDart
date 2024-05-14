@@ -9,7 +9,6 @@ ButtonElement pulireOutput = querySelector('#clear_output') as ButtonElement;
 ButtonElement invio = querySelector('#invio') as ButtonElement;
 
 void main() {
-  print("hello world");
   invio.onClick.listen((Event e) {
     var contenuto = input.value as String;
     output.value = '';
@@ -36,6 +35,7 @@ void main() {
 
 void leggi(String contenutoJson, String space) {
   try {
+    contenutoJson = fixJson(contenutoJson);
     dynamic contenuto = jsonDecode(contenutoJson);
     if (contenuto is List) {
       processoJsonArray(contenuto, '', space);
@@ -45,7 +45,7 @@ void leggi(String contenutoJson, String space) {
       output.value = 'Il JSON non è né un oggetto né una lista.';
     }
   } catch (e) {
-    print("errore");
+    print('errore testo: $contenutoJson');
   }
 }
 
@@ -57,7 +57,6 @@ void processoJsonObject(
     s = space;
 
     if (controlloTesto(displayValue)) {
-      print('$space$key: \n');
       output.value = '${output.value ?? ''}$space$key:\n';
       space = '$space   ';
       leggi(modificaTesto(displayValue), space);
@@ -123,4 +122,16 @@ String modificaTesto(String testo) {
       .replaceAll('["{', '[{');
 
   return t;
+}
+
+String fixJson(String jsonString) {
+  jsonString =
+      jsonString.replaceAll(RegExp(r'(?<!\\)"(.*?)"(?<!\\)"'), r'\"$1\"');
+
+  jsonString = jsonString
+      .replaceAllMapped(RegExp(r'"([^"]+)": "([^"]+)": "(.*?)"'), (match) {
+    return '"${match.group(1)}": "${match.group(2)}: ${match.group(3)}"';
+  });
+
+  return jsonString;
 }
