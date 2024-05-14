@@ -55,6 +55,7 @@ textarea {
 }
 .tab {
   width: 50%;
+  overflow: hidden;
 }
 .tab h2 {
   font-family: 'Iosevka Web', sans-serif;
@@ -81,19 +82,23 @@ h1 {
   align-items: center;
 }
 
-.button{
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
   cursor: pointer;
-  background-color: white;
-  border-radius: 6px;
-  color: #333333;
-  user-select: none;
-  margin-right: 14px;
-  width: auto;
-  font-weight: 600;
-  height: 30px;
-  border: 0;
-  font: 'Iosevka Web';
-  transition: all 0.1s ease;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: white;
+}
+
+.tab button:hover {
+  background-color: rgb(54, 88, 88);
+}
+
+button.active {
+  background-color: #ccc;
 }
 
 textarea::-webkit-scrollbar-thumb {
