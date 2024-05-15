@@ -2,7 +2,7 @@ import 'dart:convert' as json;
 import 'dart:html';
 
 TextAreaElement input = querySelector('#input') as TextAreaElement;
-TextAreaElement output = querySelector('#output') as TextAreaElement;
+TextAreaElement output = querySelector('#outputFormatta') as TextAreaElement;
 
 void formatJSON() {
   try {
