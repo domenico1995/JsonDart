@@ -7,21 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let y = 0;
     let leftWidth = 0;
 
-    // Handle the mousedown event
-    // that's triggered when user drags the resizer
     const mouseDownHandler = function (e) {
-        // Get the current mouse position
         x = e.clientX;
         y = e.clientY;
         leftWidth = leftSide.getBoundingClientRect().width;
 
-        // Attach the listeners to document
         document.addEventListener('mousemove', mouseMoveHandler);
         document.addEventListener('mouseup', mouseUpHandler);
     };
 
     const mouseMoveHandler = function (e) {
-        // How far the mouse has been moved
         const dx = e.clientX - x;
         const dy = e.clientY - y;
 
