@@ -9,6 +9,7 @@ ButtonElement pulire = querySelector('#clear_all') as ButtonElement;
 ButtonElement conversione = querySelector('#conversione') as ButtonElement;
 ButtonElement formattazione = querySelector('#formattazione') as ButtonElement;
 ButtonElement apriFile = querySelector("#apriFile") as ButtonElement;
+ButtonElement albero = querySelector("#albero") as ButtonElement;
 
 void main() {
   void clearTextArea(TextAreaElement textArea) {

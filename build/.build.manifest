@@ -19,3 +19,6 @@ packages/lints/core.yaml
 packages/lints/recommended.yaml
 script.js
 styles.css
+tree.css
+utils/albero.js
+utils/tab.js
