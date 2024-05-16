@@ -14,11 +14,11 @@
     <div class="top-section">
       <header>
         <h1>
-          <span>Parsing Json</span>
+          <span>PARSING JSON</span>
         </h1>
       </header>
     </div>
-
+  
     <div class="tabs-section">
       <div class="tab">
         <div class="code-actions">
@@ -29,41 +29,44 @@
       </div>
       <div class="tab">
         <button class="button tablinks" onclick="openCity(event, 'Conversione')" id="conversione">Conversione</button>
-        <button class="button tablinks" onclick="openCity(event, 'Formatta')" id="formattazione">Fromatta</button>
+        <button class="button tablinks" onclick="openCity(event, 'Formatta')" id="formattazione">Formatta</button>
         <button class="button tablinks" onclick="openCity(event, 'Albero')" id="albero">Albero</button>
       </div>
     </div>
-
+  
     <div id="container">
-      <textarea id="input" spellcheck="false">
-[
-  {
-    "nome": "Marco",
-    "cognome": "Verdi",
-    "posizione": "Programmatore",
-    "stipendio": 70000
-  },
-  {
-    "nome": "Laura",
-    "cognome": "Bianchi",
-    "posizione": "Sviluppatore Senior",
-    "stipendio": 90000
-  }
-]
-      </textarea>
-      <div id="divider"></div>
+      <div id="sinistra">
+        <textarea id="input" spellcheck="false">
+  [
+    {
+      "nome": "Marco",
+      "cognome": "Verdi",
+      "posizione": "Programmatore",
+      "stipendio": 70000
+    },
+    {
+      "nome": "Laura",
+      "cognome": "Bianchi",
+      "posizione": "Sviluppatore Senior",
+      "stipendio": 90000
+    }
+  ]
+        </textarea>
+      </div>
+      <div id="divider" ></div>
       <div id="tabContentContainer">
         <div id="Conversione" class="tabcontent">
-          <textarea id="output" spellcheck="false"></textarea>
+          <textarea id="output" spellcheck="false" readonly></textarea>
         </div>
         <div id="Formatta" class="tabcontent" style="display: none;">
-          <textarea id="outputFormatta" spellcheck="false"></textarea>
+          <textarea id="outputFormatta" spellcheck="false" readonly></textarea>
         </div>
         <div id="Albero" class="tabcontent" style="display: none;">
           <div class="form"></div>
         </div>
       </div>
-      
+    </div>
+
       <script>
       function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
@@ -79,7 +82,6 @@
         evt.currentTarget.className += " active";
       }
       
-      document.getElementById("Londra").style.display = "block";
       </script>
     </div>
 

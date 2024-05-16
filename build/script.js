@@ -1,29 +1,56 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const divider = document.getElementById('divider');
-    const leftTextarea = document.getElementById('input');
-    const rightTextarea = document.getElementById('output');
+    const resizer = document.getElementById('divider');
+    const leftSide = resizer.previousElementSibling;
+    const rightSide = resizer.nextElementSibling;
 
-    let isResizing = false;
+    let x = 0;
+    let y = 0;
+    let leftWidth = 0;
 
-    divider.addEventListener('mousedown', function (e) {
-        isResizing = true;
-        document.addEventListener('mousemove', resize);
-        document.addEventListener('mouseup', stopResize);
-    });
+    // Handle the mousedown event
+    // that's triggered when user drags the resizer
+    const mouseDownHandler = function (e) {
+        // Get the current mouse position
+        x = e.clientX;
+        y = e.clientY;
+        leftWidth = leftSide.getBoundingClientRect().width;
 
-    function resize(e) {
-        const containerRect = document.getElementById('container').getBoundingClientRect();
-        const dividerRect = divider.getBoundingClientRect();
-        const leftWidth = (e.clientX - containerRect.left) / containerRect.width * 100;
-        const rightWidth = (containerRect.right - e.clientX) / containerRect.width * 100;
+        // Attach the listeners to document
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
 
-        leftTextarea.style.width = `${leftWidth}%`;
-        rightTextarea.style.width = `${rightWidth}%`;
-    }
+    const mouseMoveHandler = function (e) {
+        // How far the mouse has been moved
+        const dx = e.clientX - x;
+        const dy = e.clientY - y;
 
-    function stopResize() {
-        isResizing = false;
-        document.removeEventListener('mousemove', resize);
-        document.removeEventListener('mouseup', stopResize);
-    }
+        const newLeftWidth = ((leftWidth + dx) * 100) / resizer.parentNode.getBoundingClientRect().width;
+        leftSide.style.width = newLeftWidth + '%';
+
+        resizer.style.cursor = 'col-resize';
+        document.body.style.cursor = 'col-resize';
+
+        leftSide.style.userSelect = 'none';
+        leftSide.style.pointerEvents = 'none';
+
+        rightSide.style.userSelect = 'none';
+        rightSide.style.pointerEvents = 'none';
+    };
+
+    const mouseUpHandler = function () {
+        resizer.style.removeProperty('cursor');
+        document.body.style.removeProperty('cursor');
+
+        leftSide.style.removeProperty('user-select');
+        leftSide.style.removeProperty('pointer-events');
+
+        rightSide.style.removeProperty('user-select');
+        rightSide.style.removeProperty('pointer-events');
+
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    resizer.addEventListener('mousedown', mouseDownHandler);
 });

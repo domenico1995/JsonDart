@@ -1,134 +1,160 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body, html {
-  margin: 0;
-  padding: 0;
-  height: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Roboto', sans-serif; /* Utilizzo coerente del carattere */
+    }
 
-.top-section {
-  padding: 30px 0 16px;
-  display: flex;
-  background-color: #1F3636; /* Prima era rgb(31, 54, 54) */
-  flex-direction: column;
-  width: 100%;
-}
+    .top-section {
+      padding: 30px 0 16px;
+      display: flex;
+      background-color: #1F3636;
+      flex-direction: column;
+      width: 100%;
+    }
 
-#container {
-  display: flex;
-  height: 100vh;
-}
+    #container {
+      display: flex;
+      height: 100vh;
+    }
 
-textarea,
-.form {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  font-family: inherit;
-  font-size: 14px;
-  color: #eee;
-  background: darkslategray;
-  border: 0;
-  overflow-y: auto;
-  overflow-x: auto;
-  outline: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  resize: none;
-  box-sizing: border-box;
-}
+    textarea {
+      width: 50%;
+      height: calc(100vh - 50px);
+      padding: 20px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #eee;
+      background: darkslategray;
+      border: 0;
+      overflow-y: auto;
+      overflow-x: auto;
+      outline: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      resize: none;
+      box-sizing: border-box;
+    }
 
-#input {
-  flex: 1;
-}
+    .form {
+      flex: 1;
+      width: 100%;
+      height: calc(100vh - 50px);
+      padding: 20px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #eee;
+      background: darkslategray;
+      border: 0;
+      overflow-y: auto;
+      overflow-x: auto;
+      outline: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: border-box;
+    }
 
-#tabContentContainer {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+    #input {
+      flex: 1;
+      height: 100%;
+    }
 
-#divider {
-  width: 10px;
-  cursor: ew-resize;
-  background-color: #2A4646; /* Prima era rgb(42, 70, 70) */
-}
+    #sinistra {
+      width: 50%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
 
-.tabs-section {
-  background-color: #2A4646; /* Prima era rgb(42, 70, 70) */
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
+    #tabContentContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-.tab {
-  width: 50%;
-  overflow: hidden;
-}
+    #divider {
+      width: 10px;
+      cursor: ew-resize;
+      background-color: #2A4646;
+    }
 
-.tab h2 {
-  font-family: 'Iosevka Web', sans-serif;
-  font-weight: normal;
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 11px 30px;
-  margin: 0;
-  color: white;
-}
+    .tabs-section {
+      background-color: #2A4646;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
 
-h1 {
-  font-family: 'Iosevka Web', sans-serif;
-  font-weight: normal;
-  text-transform: uppercase;
-  font-size: 28px;
-  padding: 11px 30px;
-  margin: 0;
-  color: white;
-}
+    .tab {
+      width: 50%;
+      overflow: hidden;
+    }
 
-.code-actions {
-  display: flex;
-  align-items: center;
-}
+    .tab h2 {
+      font-family: 'Roboto', sans-serif; 
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding: 11px 30px;
+      margin: 0;
+      color: white;
+    }
 
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  color: white;
-}
+    h1 {
+      font-family: 'Roboto', sans-serif; 
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: 28px;
+      padding: 11px 30px;
+      margin: 0;
+      color: white;
+    }
 
-.tab button:hover {
-  background-color: #365858;
-}
+    .code-actions {
+      display: flex;
+      align-items: center;
+    }
 
-button.active {
-  background-color: #ccc;
-}
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      color: white;
+    }
 
-textarea::-webkit-scrollbar-thumb {
-  background-color: #2A4646;
-}
+    .tab button:hover {
+      background-color: #365858;
+    }
 
-textarea::-webkit-scrollbar,
-textarea::-webkit-scrollbar-track {
-  width: 10px;
-  background-color: #000000;
-}
+    button.active {
+      background-color: #4a7777;
+    }
 
-.tabcontent {
-  height: 100%;
-}
+    textarea::-webkit-scrollbar-thumb {
+      background-color: #2A4646;
+    }
 
-.tabcontent textarea {
-  width: 100%;
-  height: 100%;
-}
+    textarea::-webkit-scrollbar,
+    textarea::-webkit-scrollbar-track {
+      width: 10px;
+      background-color: #000000;
+    }
+
+    .tabcontent {
+      height: 100%;
+    }
+
+    .tabcontent textarea {
+      width: 100%;
+      height: 100%;
+    }   
