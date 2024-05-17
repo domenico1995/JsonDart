@@ -3,8 +3,8 @@ svg {
 }
 .node circle {
     cursor: pointer;
-    fill: #fff;
-    stroke: steelblue;
+    fill: #1F3636;
+    stroke: #2A4646;
     stroke-width: 1.5px;
 }
 .node text {
@@ -12,18 +12,10 @@ svg {
 }
 path.link {
     fill: none;
-    stroke: #ccc;
+    stroke: #1F3636;
     stroke-width: 1.5px;
 }
 
-#visualize{
-    color: #fff;
-    background: #980224;
-    border: 0px;
-    border-radius: 3px;
-    padding: 5px;
-    margin: 5px;
-}
 svg {
     cursor: move;
 }

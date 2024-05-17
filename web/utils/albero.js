@@ -8,7 +8,6 @@ function callJSONTree() {
     JSONTree(latestJSON);
 }
 
-
 function JSONTree(jsonContent) {
     try {
         jsonContent = JSON.parse(jsonContent);
@@ -33,10 +32,10 @@ function JSONTree(jsonContent) {
 
     var vis = d3.select("#form").append("svg")
         .attr("width", formWidth)
-        .attr("height", formHeight-40)
+        .attr("height", formHeight - 40)
         .append("g")
         .attr("class", 'drawarea')
-        .attr("transform", "translate(" + m[3] + "," + m[0] + ")"); 
+        .attr("transform", "translate(" + (m[3] + 60) + "," + m[0] + ")");  // Aumenta il valore di m[3] per spostare a destra
 
     var json = prepareFn(jsonContent);
     root = json;
@@ -79,7 +78,7 @@ function JSONTree(jsonContent) {
         nodeEnter.append("circle")
             .attr("r", 1e-6)
             .style("fill", function (d) {
-                return d._children ? "lightsteelblue" : "#fff";
+                return d._children ? "green" : "lightgreen";
             });
 
         nodeEnter.append("text")
@@ -93,7 +92,9 @@ function JSONTree(jsonContent) {
             .text(function (d) {
                 return d.name;
             })
-            .style("fill-opacity", 1e-6);
+            .style("fill-opacity", 1e-6)
+            .style("fill", "white")
+            .style("font-size", "14px"); 
 
         var nodeUpdate = node.transition()
             .duration(duration)
@@ -104,11 +105,13 @@ function JSONTree(jsonContent) {
         nodeUpdate.select("circle")
             .attr("r", 4.5)
             .style("fill", function (d) {
-                return d._children ? "lightsteelblue" : "#fff";
+                return d._children ? "green" : "lightgreen";
             });
 
         nodeUpdate.select("text")
-            .style("fill-opacity", 1);
+            .style("fill-opacity", 1)
+            .style("fill", "white")
+            .style("font-size", "14px"); 
 
         var nodeExit = node.exit().transition()
             .duration(duration)

@@ -9,6 +9,16 @@ body, html {
     font-family: 'Roboto', sans-serif; 
 }
 
+body::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+    background-color: #4a7777;
+}
+
+body::-webkit-scrollbar, body::-webkit-scrollbar-track,
+html::-webkit-scrollbar, html::-webkit-scrollbar-track {
+    width: 10px;
+    background-color: #1F3636;
+}
+
 .top-section {
     padding: 30px 0 16px;
     display: flex;
