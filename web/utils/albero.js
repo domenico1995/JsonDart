@@ -86,7 +86,7 @@ function JSONTree(jsonContent) {
             .attr("x", function (d) {
                 return d.children || d._children ? -10 : 10;
             })
-            .attr("dy", ".2em") // Modifica il valore per spostare il testo più vicino ai nodi
+            .attr("dy", ".2em") 
             .attr("text-anchor", function (d) {
                 return d.children || d._children ? "end" : "start";
             })
