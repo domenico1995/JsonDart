@@ -165,3 +165,24 @@ textarea::-webkit-scrollbar-track {
     height: 100%;
 }
 
+svg {
+    pointer-events: all;
+}
+.node circle {
+    cursor: pointer;
+    fill: #1F3636;
+    stroke: #2A4646;
+    stroke-width: 1.5px;
+}
+.node text {
+    font-size: 11px;
+}
+path.link {
+    fill: none;
+    stroke: #1F3636;
+    stroke-width: 1.5px;
+}
+
+svg {
+    cursor: move;
+}
