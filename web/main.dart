@@ -7,7 +7,7 @@ TextAreaElement input = querySelector('#input') as TextAreaElement;
 TextAreaElement output = querySelector('#output') as TextAreaElement;
 TextAreaElement outputFormatta =
     querySelector('#outputFormatta') as TextAreaElement;
-ButtonElement pulire = querySelector('#clear_all') as ButtonElement;
+ButtonElement pulire = querySelector('#pulireTutto') as ButtonElement;
 ButtonElement conversione = querySelector('#conversione') as ButtonElement;
 ButtonElement formattazione = querySelector('#formattazione') as ButtonElement;
 ButtonElement apriFile = querySelector("#apriFile") as ButtonElement;

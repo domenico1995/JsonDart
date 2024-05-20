@@ -2994,7 +2994,7 @@ r($,"ij","eD",()=>t.q.a(A.I("#outputFormatta")))
 r($,"ig","dh",()=>t.q.a(A.I("#input")))
 r($,"ik","di",()=>t.q.a(A.I("#output")))
 r($,"il","eE",()=>t.q.a(A.I("#outputFormatta")))
-r($,"im","eF",()=>t.o.a(A.I("#clear_all")))
+r($,"im","eF",()=>t.o.a(A.I("#pulireTutto")))
 r($,"ia","ez",()=>t.o.a(A.I("#conversione")))
 r($,"ic","eA",()=>t.o.a(A.I("#formattazione")))
 r($,"i9","ey",()=>t.o.a(A.I("#apriFile")))})();(function nativeSupport(){!function(){var s=function(a){var m={}
