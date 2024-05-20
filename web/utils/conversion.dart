@@ -32,7 +32,6 @@ void processoJsonObject(
       leggi(modificaTesto(displayValue), space);
       space = s;
     } else {
-      print('$space$key: $displayValue');
       output.value = '${output.value ?? ''}$space$key: $displayValue\n';
     }
   });
@@ -55,7 +54,6 @@ void processoJsonArray(
         leggi(modificaTesto(displayValue), space);
         space = s;
       } else {
-        print('$space$parentKey:$displayValue\n');
         output.value = '${output.value ?? ''}$space$parentKey:$displayValue\n';
       }
     }

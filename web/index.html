@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,111 +11,111 @@
     <script src="firebase-setup.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 </head>
+
 <body>
-<script defer src="main.dart.js"></script>
+    <script defer src="main.dart.js"></script>
 
-<div class="top-section">
-    <header>
-        <h1>
-            <span>PARSING JSON</span>
-        </h1>
-    </header>
-</div>
+    <div class="top-section">
+        <header>
+            <h1>
+                <span>PARSING JSON</span>
+            </h1>
+        </header>
+    </div>
 
-<div class="tabs-section">
-    <div class="tab">
-        <div class="code-actions">
-            <button class="button" id="apriFile">Apri file</button>
-            <button class="button" id="pulireTutto">Pulisci tutto</button>
+    <div class="tabs-section">
+        <div class="tab">
+            <div class="code-actions">
+                <button class="button" id="apriFile">Apri file</button>
+                <button class="button" id="pulireTutto">Pulisci tutto</button>
+            </div>
+        </div>
+        <div class="tab">
+            <button class="button tablinks" onclick="openTab(event, 'Conversione')" id="conversione">Conversione</button>
+            <button class="button tablinks" onclick="openTab(event, 'Formatta')" id="formattazione">Formatta</button>
+            <button class="button tablinks" onclick="openTab(event, 'Albero')" id="albero">Albero</button>
         </div>
     </div>
-    <div class="tab">
-        <button class="button tablinks" onclick="openCity(event, 'Conversione')" id="conversione">Conversione</button>
-        <button class="button tablinks" onclick="openCity(event, 'Formatta')" id="formattazione">Formatta</button>
-        <button class="button tablinks" onclick="openCity(event, 'Albero')" id="albero">Albero</button>
-    </div>
-</div>
 
-<div id="container">
-  <div id="sinistra">
-      <textarea id="input" spellcheck="false">
+    <div id="container">
+        <div id="sinistra">
+            <textarea id="input" spellcheck="false">
+{
+    "azienda": "Acme Inc.",
+    "anno_di_fondazione": 1990,
+    "sede_principale": {
+        "città": "New York",
+        "via": "123 Main Street",
+        "cap": "10001"
+    },
+    "dipartimenti": [
         {
-            "azienda": "Acme Inc.",
-            "anno_di_fondazione": 1990,
-            "sede_principale": {
-              "città": "New York",
-              "via": "123 Main Street",
-              "cap": "10001"
+            "nome": "Sviluppo",
+            "responsabile": {
+                "nome": "Alice",
+                "cognome": "Rossi",
+                "posizione": "Direttore"
             },
-            "dipartimenti": [
-              {
-                "nome": "Sviluppo",
-                "responsabile": {
-                  "nome": "Alice",
-                  "cognome": "Rossi",
-                  "posizione": "Direttore"
-                },
-                "impiegati": [
-                  {
+            "impiegati": [
+                {
                     "nome": "Marco",
                     "cognome": "Verdi",
                     "posizione": "Programmatore",
                     "stipendio": 70000
-                  },
-                  {
+                },
+                {
                     "nome": "Laura",
                     "cognome": "Bianchi",
                     "posizione": "Sviluppatore Senior",
                     "stipendio": 90000
-                  }
-                ]
-              },
-              {
-                "nome": "Marketing",
-                "responsabile": {
-                  "nome": "Anna",
-                  "cognome": "Gialli",
-                  "posizione": "Direttore"
-                },
-                "impiegati": [
-                  {
+                }
+            ]
+        },
+        {
+            "nome": "Marketing",
+            "responsabile": {
+                "nome": "Anna",
+                "cognome": "Gialli",
+                "posizione": "Direttore"
+            },
+            "impiegati": [
+                {
                     "nome": "Giuseppe",
                     "cognome": "Neri",
                     "posizione": "Marketing Manager",
                     "stipendio": 80000
-                  },
-                  {
+                },
+                {
                     "nome": "Elena",
                     "cognome": "Rosa",
                     "posizione": "Specialista SEO",
                     "stipendio": 75000
-                  }
-                ]
-              }
+                }
             ]
-          }
-      </textarea>
-  </div>
-  <div id="divider"></div>
-  <div id="tabContentContainer">
-      <div id="Conversione" class="tabcontent">
-          <textarea id="output" spellcheck="false" readonly></textarea>
-      </div>
-      <div id="Formatta" class="tabcontent" style="display: none;">
-          <textarea id="outputFormatta" spellcheck="false" readonly></textarea>
-      </div>
-      <div id="Albero" class="tabcontent" style="display: none;">
-          <div class="form" id="form">
-          </div>
-      </div>
-  </div>
-</div>
+        }
+    ]
+}
+            </textarea>
+        </div>
+        <div id="divider"></div>
+        <div id="tabContentContainer">
+            <div id="Conversione" class="tabcontent">
+                <textarea id="output" spellcheck="false" readonly></textarea>
+            </div>
+            <div id="Formatta" class="tabcontent" style="display: none;">
+                <textarea id="outputFormatta" spellcheck="false" readonly></textarea>
+            </div>
+            <div id="Albero" class="tabcontent" style="display: none;">
+                <div class="form" id="form"></div>
+            </div>
+        </div>
     </div>
-    
+
     <script src="/utils/tab.js"></script>
     <script src="script.js"></script>
     <script src="/utils/albero.js"></script>
-    
-    </body>
-    </html>
-    
+
+</body>
+
+</html>
+
