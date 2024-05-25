@@ -1,0 +1,54 @@
+[
+  {
+    "numero_ordine": "ORD123456",
+    "cliente": {
+      "nome": "Mario Rossi",
+      "email": "mario.rossi@example.com",
+      "telefono": "+1234567890",
+      "indirizzo": "Via Roma 123, Milano, 20121, Italia"
+    },
+    "articolo": 
+      {
+        "id_prodotto": "PROD789",
+        "nome": "Smartphone",
+        "quantità": 2,
+        "prezzo_totale": 999.98
+      }
+    ,
+    "metodo_spedizione": "Express",
+    "costo_spedizione": 19.99,
+    "costo_totale": 2119.96,
+    "metodo_pagamento": "Carta di credito",
+    "stato_pagamento": "Pagato",
+    "stato_ordine": "Spedito",
+    "data_ordine": "2024-05-22T10:30:00Z",
+    "data_consegna_prevista": "2024-05-25",
+    "note": "Si prega di garantire la consegna entro le ore 17:00."
+  },
+  {
+    "numero_ordine": "ORD654321",
+    "cliente": {
+      "nome": "Luigi Verdi",
+      "telefono": "+123456780",
+      "email": "luigi.verdi@example.com",
+      "indirizzo": "Via Verdi 456, Roma, 00100, Italia"
+    },
+    "articolo": 
+      {
+        "id_prodotto": "PROD123",
+        "nome": "Laptop",
+        "quantità": 1,
+        "prezzo_totale": 1299.99
+      }
+    ,
+    "metodo_spedizione": "Standard",
+    "costo_spedizione": 9.99,
+    "costo_totale": 1309.98,
+    "metodo_pagamento": "PayPal",
+    "stato_pagamento": "In attesa",
+    "stato_ordine": "In elaborazione",
+    "data_ordine": "2024-05-22T11:45:00Z",
+    "data_consegna_prevista": "2024-05-28",
+    "note": "Favorire la spedizione il venerdì."
+  }
+]
