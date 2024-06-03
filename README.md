@@ -2,7 +2,7 @@
 Progetto di parsing e visualizzazione.
 
 ## Indice
-- [Web App](# Web app)
+- [Web App](#Web app)
 - [Installazione](#installazione)
 - [Uso](#uso)
 - [Funzionalità](#funzionalità)
