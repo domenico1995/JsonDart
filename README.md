@@ -10,7 +10,7 @@ Progetto di parsing e visualizzazione.
   - [Codice](#codice)
 
 # Introduzione
-I
+I sistemi informativi si scambiano dati e informazioni attraverso un flusso di dati. Tali dati sono strutturati in formati che permettono loro di essere codificati e decodificati. Il processo di parsing permette la loro conversione.
 
 ## Web App
 Istruzioni per iniziare con il progetto.
