@@ -2,7 +2,7 @@
 Progetto di parsing e visualizzazione.
 
 ## Indice
-- [Come Iniiare](#come-iniziare)
+- [Web App](#Web-App)
 - [Installazione](#installazione)
 - [Uso](#uso)
 - [Funzionalità](#funzionalità)
@@ -17,7 +17,7 @@ Progetto di parsing e visualizzazione.
   - [Citazioni](#citazioni)
   - [Codice](#codice)
 
-## Come Iniziare
+## Web App
 Istruzioni per iniziare con il progetto.
 
 ## Web App
