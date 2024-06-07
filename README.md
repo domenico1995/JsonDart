@@ -16,8 +16,13 @@ I sistemi informativi si scambiano dati e informazioni attraverso un flusso di d
 
 ## Dart
 Dart è un linguaggio di programmazione open-source sviluppato da Google, progettato per offrire un ambiente di sviluppo moderno e per performante per la creazione di applicazione web e mobile. La sua sintassi chiara e intuitiva, insieme a una serie di strumenti e framework, rendono Dart una scelta popolare tra gli sviluppatori che cercano ci creare applicazioni robuste e scalabili.
-Una delle caratteristiche distintive di Dart è la sua flessibilità nell’ambito dello sviluppo cross-platform. Con Dart, gli sviluppatori possono scrivere codice una sola volta e distribuirlo su diverse piatteforme, tra cui Android, iOS, web e persino applicazioni desktop. Questo è reso possibile grazie a kit di sviluppo come Flutter e AngularDart. 
-AngularDart è un kit di sviluppo di applicazioni web che sfrutta la potenza di Dart per creare interfacce utente dinamiche e complesse. Basato sul framework JavaScript Angular, AngularDart offre un’esperienza di sviluppo moderna e scalabile per la creazione di applicazioni web complesse.
+
+Una delle caratteristiche distintive di Dart è la sua flessibilità nell’ambito dello sviluppo cross-platform. Con Dart, gli sviluppatori possono scrivere codice una sola volta e distribuirlo su diverse piatteforme, tra cui Android, iOS, web e persino applicazioni desktop. 
+
+Questo è reso possibile grazie a kit di sviluppo come Flutter e AngularDart. 
+AngularDart è un kit di sviluppo di applicazioni web che sfrutta la potenza di Dart per creare interfacce utente dinamiche e complesse. 
+
+Basato sul framework JavaScript Angular, AngularDart offre un’esperienza di sviluppo moderna e scalabile per la creazione di applicazioni web complesse.
 Oltre alle sue capacità cross-platform, Dart offre una serie di funzionalità avanzate ch lo rendono un linguaggio potente per lo sviluppo di applicazioni moderne. Tra queste vi sono:
  * Tipizzazione Statica: Dart supporta la tipizzazione statica, che consente agli sviluppatori di individuare errori nel codice durante la compilazione anziché a tempo di esecuzione. Questo aiuta a migliorare la robustezza e la stabilità delle applicazioni.
 
