@@ -62,7 +62,9 @@ Ogni volta che vengono apportate modifiche ai file della web app, Webdev rileva 
 ## Knime
 
 Knime (Konstanz Information Miner) è un progetto open-source per l’analisi dei dati e l’integrazione di flussi di lavoro. Creato nel 2004 all’Università di Konstanz e rilasciato pubblicamente nella metà del 2006.
+
 Offre un ambiente visuale drag-and-drop per la creazione, l'esecuzione, l'integrazione e l'automazione di analisi dei dati e processi di machine learning. Consente agli utenti di combinare in modo molto semplice dati provenienti da diverse fonti, eseguire analisi statistiche, applicare algoritmi di machine learning e visualizzare i risultati in modo chiaro e comprensibile.
+
 Knime, grazie a queste sue caratteristiche, rientra nella categoria no-code (vedere paragrafo 2.6).
 Knime utilizza due concetti importanti: il nodo e il flusso di lavoro.
 L’interfaccia utente di Knime è composta da sei finestre principali ognuna con un proprio scopo. Tali finestre sono visibili una volta avviata l’applicazione di Knime.
@@ -79,15 +81,19 @@ In Figura 2 è rappresentato un esempio di flusso di lavoro (o workflow), all’
 L’esempio permette di dare una migliore prospettiva di come funziona Knime e del flusso di lavoro che in questo caso va da sinistra a destra.
 Il flusso di lavoro è costituito da nodi, rappresentati da un’icona quadrata con del testo e delle forme intorno.
 In cima al nodo vi è il suo nome in grassetto. Il nome rappresenta la funzione di quel nodo. Se per esempio, si dovesse leggere in file Json usiamo il nodo Json Reader.
+
 Nella parte inferiore è possibile scrivere un commento. Il commento permette di dare una spiegazione o contesto al nodo all’interno del flusso di lavoro. Di default Knime crea un comento in ogni nodo aggiunto al flusso di lavoro usando un semplice contatore. Ad esempio: Nod1, Node2 e così via. Con un doppio clic si può modificare facilmente.
 I nodi sono collegati attraverso connettori o delle porte, presenti a sinistra e a destra del quadrato del nodo. Per convenzione la parte sinistra del nodo indica l’input e la parte destra indica l’output. 
+
 Tali porte possono avere forma e colore diverso a seconda del tipo di contenuto che le attraversa: di forma triangolare indica il trasporto di tabelle di dati o dataset e rappresentano la maggior parte di esse ricadono in questa categoria, di forma quadrata trasportano modelli statistici, connessioni remote o immagini o di forma triangolare per le variabili.
  
 Figura 2 Esempio workflow editor
 
-Nella parte inferiore di ogni nodo, si trova un semaforo che segnala lo stato del nodo. Se la luce rossa del semaforo è accesa indica che il nodo non è ancora pronto per fare il suo lavoro, potrebbe essere che alcuni dati richiesti in input non siano disponibili o che sia necessario qualche ulteriore fase di configurazione. Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. Possono apparire anche altre icone sul semaforo: 
+Nella parte inferiore di ogni nodo, si trova un semaforo che segnala lo stato del nodo. Se la luce rossa del semaforo è accesa indica che il nodo non è ancora pronto per fare il suo lavoro, potrebbe essere che alcuni dati richiesti in input non siano disponibili o che sia necessario qualche ulteriore fase di configurazione. Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. 
+Possono apparire anche altre icone sul semaforo: 
 * Triangolo giallo con un punto esclamativo, segnala un warming, un potenziale errore. Rappresenta un insolito e potenziale errore che richiede la nostra attenzione.
-* Cerchio rosso con una croce annuncia invece un errore che bloccante. Non permette quindi al nodo di essere, in alcun modo, eseguito. In questi casi, con il puntatore del mouse per un secondo, appare un’etichetta con le informazioni o vedendo nei messaggi sulla console di Knime. 
+* Cerchio rosso con una croce annuncia invece un errore che bloccante. Non permette quindi al nodo di essere, in alcun modo, eseguito. In questi casi, con il puntatore del mouse per un secondo, appare un’etichetta con le informazioni o vedendo nei messaggi sulla console di Knime.
+
 Nel repository di Knime sono disponibili diverse famiglie di nodi disponibili e ognuna delle quali risponde a una diversa classe di esigenza. I più popolari sono:
 * Input e Output: questa categoria di nodi portano i dati all’interno e all’esterno di Knime comportandosi da sistemi di Input e sistemi di Output. Tipicamente i nodi di input sono all’inizio del flusso di lavoro e servono ad aprire file in diversi formati(CSV, Excel, immagini, pagine web, pdf e altro) o a connettersi a database remoti o locali ed estrarre i dati di cui si ha bisogno. I nodi di questa categoria hanno la funzione di iniziare il flusso di lavoro che termina con quelli di output.
 * Manipolazione: i nodi appartenenti a questa categoria permettono la manipolazione di tabelle di dati e trasformarle secondo le esigenze dell’utente. Si possono aggreggiare, combinare, ordinare, filtrare e rimodellare le tabelle, ma anche gestirne i valori mancanti normalizzando le scale e convertire i tipi di dato, come xml a Json, ma anche gestire i valori mancanti, normalizzare le scale e convertire i tipi di dato. I nodi appartenenti a questo gruppo e a quelli di Input e Output sono sempre presenti all’interno di un flusso di lavoro. I nodi della Manipolazione possono avere più di una porta di ingresso o più di una porta di uscita, essendo in grado di fondere più tabelle insieme o di suddividerle in più parti.
