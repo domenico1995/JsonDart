@@ -21,7 +21,7 @@ AngularDart è un kit di sviluppo di applicazioni web che sfrutta la potenza di 
 Oltre alle sue capacità cross-platform, Dart offre una serie di funzionalità avanzate ch lo rendono un linguaggio potente per lo sviluppo di applicazioni moderne. Tra queste vi sono:
  * Tipizzazione Statica: Dart supporta la tipizzazione statica, che consente agli sviluppatori di individuare errori nel codice durante la compilazione anziché a tempo di esecuzione. Questo aiuta a migliorare la robustezza e la stabilità delle applicazioni.
 
-'''javascript
+'''dart
 int somma(int a, int b) {
 	return a + b;
 }
