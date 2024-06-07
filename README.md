@@ -29,7 +29,7 @@ int somma(int a, int b) {
 void main() {
 	print(somma(5, 10)); // Output: 15
 }
-'''
+
  * Garbage collection: Dart gestisce automaticamente la memoria allocata per gli oggetti non utilizzati mediante il garbage collection, semplificando il processo di gestione della memoria per gli sviluppatori.
  * Asincronia: Dart offre un supporto nativo per la programmazione asincrona, consentendo agli sviluppatori di scrivere codice che gestisce operazioni non bloccanti come chiamate di rete e operazioni di I/O in modo efficiente e conciso.
 Future<void> main() async {
