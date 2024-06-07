@@ -22,8 +22,12 @@ Oltre alle sue capacità cross-platform, Dart offre una serie di funzionalità a
  * Tipizzazione Statica: Dart supporta la tipizzazione statica, che consente agli sviluppatori di individuare errori nel codice durante la compilazione anziché a tempo di esecuzione. Questo aiuta a migliorare la robustezza e la stabilità delle applicazioni.
 
 ```dart
+int somma(int a, int b) {
+	return a + b;
+}
+
 void main() {
-  print('Hello, World!');
+	print(somma(5, 10)); // Output: 15
 }
 ```
 
