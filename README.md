@@ -53,7 +53,9 @@ print(‘Fine’);
 Per iniziare a sviluppare applicazioni con Dart, è necessario scaricare e installare l’SDK di Dart. Una volta installato, è possibile utilizzare strumenti come Webdev per semplificare lo sviluppo di applicazioni web in Dart. 
 Webdev gestisce le dipendenze del progetto e avvia un server locale per la visualizzazione dell’applicazione durante lo sviluppo.
 La creazione di una nuova web app Dart è semplice grazie al comando ‘dart create-t web nomeprogetto’. 
+
 Questo comando crea una struttura di base per la web app, inclusi i file main.dart per la logica dell’applicazione, un file HTML per la struttura della pagina web e un file CSS per lo stile.
+
 Una delle caratteristiche più potenti di Dart è la possibilità di ricarica automaticamente le modifiche apportate al codice durante lo sviluppo. 
 Ogni volta che vengono apportate modifiche ai file della web app, Webdev rileva automaticamente queste modifiche e le ricarica nel browser in tempo reale, consentendo un flusso di lavoro efficiente e produttivo.
 
