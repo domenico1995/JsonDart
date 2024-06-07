@@ -20,7 +20,7 @@ Una delle caratteristiche distintive di Dart è la sua flessibilità nell’ambi
 AngularDart è un kit di sviluppo di applicazioni web che sfrutta la potenza di Dart per creare interfacce utente dinamiche e complesse. Basato sul framework JavaScript Angular, AngularDart offre un’esperienza di sviluppo moderna e scalabile per la creazione di applicazioni web complesse.
 Oltre alle sue capacità cross-platform, Dart offre una serie di funzionalità avanzate ch lo rendono un linguaggio potente per lo sviluppo di applicazioni moderne. Tra queste vi sono:
  * Tipizzazione Statica: Dart supporta la tipizzazione statica, che consente agli sviluppatori di individuare errori nel codice durante la compilazione anziché a tempo di esecuzione. Questo aiuta a migliorare la robustezza e la stabilità delle applicazioni.
-
+'''dart
 int somma(int a, int b) {
 	return a + b;
 }
@@ -28,7 +28,7 @@ int somma(int a, int b) {
 void main() {
 	print(somma(5, 10)); // Output: 15
 }
-
+'''
  * Garbage collection: Dart gestisce automaticamente la memoria allocata per gli oggetti non utilizzati mediante il garbage collection, semplificando il processo di gestione della memoria per gli sviluppatori.
  * Asincronia: Dart offre un supporto nativo per la programmazione asincrona, consentendo agli sviluppatori di scrivere codice che gestisce operazioni non bloccanti come chiamate di rete e operazioni di I/O in modo efficiente e conciso.
 Future<void> main() async {
@@ -44,12 +44,6 @@ La creazione di una nuova web app Dart è semplice grazie al comando ‘dart cre
 Questo comando crea una struttura di base per la web app, inclusi i file main.dart per la logica dell’applicazione, un file HTML per la struttura della pagina web e un file CSS per lo stile.
 Una delle caratteristiche più potenti di Dart è la possibilità di ricarica automaticamente le modifiche apportate al codice durante lo sviluppo. 
 Ogni volta che vengono apportate modifiche ai file della web app, Webdev rileva automaticamente queste modifiche e le ricarica nel browser in tempo reale, consentendo un flusso di lavoro efficiente e produttivo.
-Inoltre, Dart offre una serie di librerie e framework per lo sviluppo di applicazioni web e mobile. AngularDart e Flutter sono due esempi principali. 
-AngularDart è un framework per lo sviluppo di applicazioni mobile cross-platform. Entrambi offrono un’esperienze di sviluppo moderno e scalabile per la creazione di applicazioni complesse.
-In sintesi, Dart è un linguaggio di programmazione potente e flessibile che offre molte funzionalità per lo sviluppo web e mobile. 
-Con il supporto cross-platform, la sua sintassi intuitiva e le sue caratteristiche avanzate, Dart è una scelta eccellente per gli sviluppatori che desiderano creare applicazione moderne e performanti per una varietà di piattaforme. 
-La comunità di sviluppatori attorno a Dart è attiva e in costante crescita, offrendo supporto e risorse aggiuntive per colo che vogliono approfondire le proprie conoscenza e competenze nel linguaggio.
-
 
 ## Knime
 
