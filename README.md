@@ -3,6 +3,7 @@ Progetto di parsing e visualizzazione.
 
 ## Indice
 - [Introruzione](#Introduzione)
+- [JSON](#json)
 - [Dart](#dart)
 - [Knime](#Knime)
 - [Web App](#Web-App)
@@ -13,6 +14,141 @@ Progetto di parsing e visualizzazione.
 
 # Introduzione
 I sistemi informativi si scambiano dati e informazioni attraverso un flusso di dati. Tali dati sono strutturati in formati che permettono loro di essere codificati e decodificati. Il processo di parsing permette la loro conversione.
+
+## JSON
+JSON (JavaScript Object Notation) è un formato molto utilizzato oggi per lo scambio di informazioni. Questo formato è stato standardizzato per la prima volta nel 2013 all'interno dello standard ECMA-404, e successivamente è stato aggiornato nella sua seconda versione nel 2017 come parte dello standard ISO/IEC 21778. 
+È stato definito anche all’interno del RFC 8259. Dalla prima alla seconda versione dell’RFC 8259, sono state fatte alcune modifiche per rendere più facile capire e usare il formato JSON. Queste modifiche includono spiegazioni extra per chiarire il significato di alcune idee, consigli nuovi su come usare JSON correttamente e nuovi esempi per aiutare a capire meglio come funziona. Inoltre, sono state aggiunte informazioni sulla sicurezza e su come gestire eventuali errori, per aiutare gli sviluppatori a fare applicazioni più sicure e solide che usano JSON per scambiare i dati.
+ECMA (European Computer Manufacturers Association) è un'associazione fondata nel 1961 che si occupa di standardizzazione nel settore informatico e dei sistemi di telecomunicazione. ISO/IEC 21778 è uno standard definito dall'ISO (Organizzazione internazionale per la normazione) e dall'IEC (Commissione elettrotecnica internazionale), due entità che collaborano nella definizione degli standard.
+Il formato JSON è composto da una sequenza di token ed include sei caratteri strutturali ([ - { - ] - } - : -  ,), stringhe, numeri e tre nomi letterali (true, false, null) ed è un valore serializzato. Quest’ultimo aspetto permette di rappresentare dati strutturati in una sequenza di caratteri secondo le specifiche di JSON.
+ 
+La sintassi di JSON è definita come segue.
+JSON è composto da: 
+Spazi bianchi (ws: white spaces), seguiti da un valore (value) nel seguente modo: 
+
+JSON Text = ws value ws
+
+Sei caratteri strutturali:
+* Inizio-array = ws %x5B ws; ‘[‘ parentesi quadra aperta per l’inizio di un array
+* Inizio-oggetto = ws %x7B ws; ‘{‘ parantesi graffa aperta per l’inizio di un oggetto
+* Fine-array = ws %x5D ws; ‘]’ parentesi quadra chiusa per la fine di un array
+* Fine-oggetto = ws %7Dws; ‘}’ parentesi graffa chiusa per la fina di un oggetto
+* separatore-nome = ws %x3A ws; ‘:’ due punti  
+* separatore-valore = ws %x2C ws; ‘,’ virgola
+ 
+I valori sono rappresentati usando la notazione ‘%xhh’ per rappresentare i valori esadecimali. Ad esempio %x5B indica la parentesi quadra aperta ‘[‘.
+ 
+È consentito inserire spazi vuoti prima o dopo uno qualsiasi dei sei caratteri strutturali:
+* %x20; spazio
+* %x09; tabulazione orizzontale
+* %x0A; avanzamento di riga o Nuova riga
+* %x0D; ritorno a capo
+ 
+Un valore JSON deve essere un oggetto, array, un numero o una stringa, oppure uno dei letterali: true, false, null.
+ 
+I nomi dei letterali dei letterali devono essere in minuscolo. Non sono ammessi altri letterali secondo le seguenti regole:
+* valori = false / null / true / oggetto / array / stringa / numero
+* false = %x66.61.6c.73.65 : false
+* null = %x6e.75.6c.6c : null
+* true = %x74.72.75.65 : true
+ 
+Una struttura di oggetto è rappresentata da una coppia di parentesi graffe che circondano zero o più coppie di nome/valore. Un nome è una stringa. Dopo ogni nome viene inserito un solo due punti, separando il nome dal valore. Una singola virgola separa un valore da un nome seguente. 
+La sintassi risulta:
+oggetto = inizio-oggetto [ membro * (separatore-valore membro ) ] fine-oggetto
+membro = stringa separatore-nome valore
+ 
+I nomi all’interno di un oggetto devono assolutamente essere unici. Quando in nomi di un oggetto non sono unici, il comportamento delle diverse implicazioni del software può variare. 
+Alcune implementazioni potrebbero ignorare le coppie duplicate e considerare solo l’ultima coppia di un nome specifico, mentre altre potrebbero restituire un errore o comportarsi in modo imprevedibile. Le librerie JSON possono differire sulla questione di mantenere l’ordine dei membri dell’oggetto.
+Le implementazioni che non dipendono dall’ordine dei membri saranno compatibili tra loro, mentre quelle che si basano sull’ordine dei membri potrebbero mostrare comportamenti diversi.
+Un array è rappresentato da una serie di elementi racchiusi tra parentesi quadre. 
+La sintassi risulta:
+array = inizio-array [ valore *( separatore-valore valore ) ] fine-array
+
+Non è richiesto che gli elementi all’interno di un array siano dello stesso tipo.
+Per i numeri la rappresentazione è molto simile a quella utilizzata nella maggior parte dei linguaggi di programmazione comuni. Un numero può contenere una componente intera, una parte frazionarie e/o una parte esponenziale. 
+La parte intera può essere preceduta da un segno meno opzionale (per rappresentare numeri negativi) e consiste in una sequenza di cifre decimali. Non sono ammessi zeri iniziali.
+La parte frazionaria è costituita da un punto decimale seguito da un a o più cifre decimali.
+La parte esponenziale inizia con la lettera “E” (in maiuscolo o minuscolo) seguita da un segno più o meno opzionale e da una o più cifre decimali che rappresentano l’esponente.
+La specifica consente alle implementazioni di impostare limiti sul range e sula precisione dei numeri accettati, la precisione e il range dei numeri JSON possono variare a seconda dell’implementazione, ma per garantire l’interoperabilità, le implementazioni dovrebbero approssimare i numeri JSON entro la cifra prevista.
+Ad esempio, i numeri molto grandi come 1E400 o con molte cifre come il pi greco possono causare problemi di interoperabilità se il software che riceve questi numeri non ha la capacità di gestirli correttamente.
+Numeri speciali come infinito e NaN (Not a Number) non sono ammessi in JSON.
+La sintassi sarebbe:
+numero = [meno] int [frazione] [esponente]
+punto decimale = %x2E ; . punto decimale
+cifra da 1 a 9 = %x31-39 ; 1-9
+e = %x65 / %x45 ; e / E
+esponente = e [meno / più] 1*cifra
+intero = zero / (cifra da 1 a 9 *cifra)
+meno = %x2D ; -
+più = %x2V ; +
+zero = %x30 ; 0
+Le stringhe in JSON sono delimitate da virgolette e possono contenere qualsiasi carattere Unicode, ad eccezione di alcuni caratteri che devono essere sequenze di escape, ovvero il carattere virgolette doppie ("), la barra rovesciata (), e i caratteri di controllo nell’intervallo U+0000 a U+001F.
+Ogni carattere può essere una sequenza di escape. Se il carattere si trova nel Basic Multilingual Plane (U+0000 a U+FFFF), può essere rappresentato come una sequenza di escape di sei caratteri. Questa sequenza inizia con una barra rovesciata (), seguita dalla lettera 'u' minuscola e quattro cifre esadecimali che codificano il punto di codice del carattere. Le lettere esadecimali da A ad F possono essere sia maiuscole che minuscole.
+In alternativa, alcuni caratteri comuni possono essere rappresentati in modo più compatto utilizzando una sequenza di escape di due caratteri.
+Per i caratteri estesi che non rientrano nel Basic Multilingual Plane, la loro rappresentazione è una sequenza di 12 caratteri, che codifica la coppia surrogata UTF-16 del carattere.
+ 
+La sintassi è:
+stringa = virgolette *carattere virgolette
+carattere = senza caratteri di sequenza di escape / sequenza di escape (
+%x22 / ; “ virgolette U+0022
+%x5C / ; \ barra rovesciata U+005C
+%x2F / ;  / barra U+002F
+%x62 / ; b retrospazio U+0008
+%x66 / ; f alimentazione a capo U+000C
+%x6E / ; n avanzamento riga U+000A
+%x72 / ; r ritorno a capo U+000D
+%x74 / ; t tabulazione U+0009
+%x75 4HEXDIG ) ; uXXXX U +XXXX
+ 
+Sequenza di escape = %x5C ; \
+virgolette = %x22 ; “
+senza sequenza di escape = %x20-21 / %x23-5B / %x5D-10FFFF
+ 
+Tutte le stringhe in un testo JSON sono composte interamente da caratteri Unicode, anche se alcuni di essi sono sequenze di escape (cioè, rappresentati con la notazione “\u” seguita da un codice esadecimale), allora quel teso JSON è considerato interoperabile. Ciò significa che tutte le implementazioni software che analizzano quel testo JSON dovrebbero essere d’accordo sul significato dei nomi e die valori delle stringhe all’interno degli oggetti e degli array.
+Comunque, la specifica JSON permette teoricamente la presenza di sequenza di bit che non possono rappresentare correttamente caratteri Unicode validi. Questo può causare problemi, come quando una libreria tronca una stringa senza verificare se tale troncamento divide una coppia di surrogati UTF-16. In tali casi, il comportamento del software che riceve questi testi JSON contenenti tali valori imprevedibili, potendo restituire valori diversi per la lunghezza di una stringa o subire eccezioni fatali durante l’esecuzione.
+'''json
+{
+  "nome": "Paolo",
+  "cognome": "Rossi",
+  "età": 42,
+  "sesso": "maschio",
+  "sposato": true,
+  "hobby": [
+    "escursionismo",
+    "giardinaggio",
+    "cucina"
+  ],
+  "indirizzo": {
+    "via": "Via Roma",
+    "numero": 10,
+    "città": "Milano",
+    "cap": "20121"
+  }
+}
+'''
+L'esempio fornito illustra un documento JSON che contiene una serie di informazioni relative a persone. Ogni persona è rappresentata da un oggetto all'interno di un array. Ogni oggetto contiene diversi attributi, come il nome, il cognome, l'età e il sesso.
+Si possono notare vari tipi di valori: le stringhe per i nomi e i cognomi, i valori numerici per le età e le stringhe per i sessi, che possono essere "maschio" o "femmina". Inoltre, è presente un array associato all'attributo "hobby", che potrebbe contenere una lista di interessi o attività preferite, e un oggetto associato all'attributo "indirizzo", che potrebbe rappresentare dettagli relativi al luogo di residenza di ciascuna persona.         
+'''json                
+[
+  {
+    "nome": "Paolo",
+    "cognome": "Rossi",
+    "età": 42,
+    "sesso": "maschio"
+  },
+  {
+    "nome": "Anna",
+    "cognome": "Bianchi",
+    "età": 35,
+    "sesso": "femmina"
+  }
+]
+'''
+Questo ulteriore esempio mostra come i dati possano essere organizzati in un formato strutturato e interoperabile come JSON, facilitando lo scambio e l'interpretazione delle informazioni tra diversi sistemi e applicazioni.	
+Un parser JSON è un componente software che converte un testo scritto in formato JSON in un’altra forma di rappresentazione, solitamente una struttura dati che il programma possa elaborare in modo più efficiente o significato . Il parser deve essere in grado di accettare tutti i testi che rispettano la grammatica definita per il JSON. Per le derivazioni o le estensioni del formato JSON bisogna fare una ulteriore considerazione. Le estensioni possono introdurre regole aggiuntive o modificare il comportamento standard del parser.
+ 
+Le estensioni possono rendere il codice meno interoperabile e più complesso, è importante usarle con cautela. Le estensioni dovrebbero essere implementate solo se necessario e se vi è una chiara comprensione degli effetti che potrebbero avere sulle altre parti del sistema.
+Quando si utilizzano estensioni o derivazioni è importante documentarle in maniera chiara e ordinata per evitare fraintendimenti e problemi di compatibilità.
+
 
 ## Dart
 Dart è un linguaggio di programmazione open-source sviluppato da Google, progettato per offrire un ambiente di sviluppo moderno e per performante per la creazione di applicazione web e mobile. La sua sintassi chiara e intuitiva, insieme a una serie di strumenti e framework, rendono Dart una scelta popolare tra gli sviluppatori che cercano ci creare applicazioni robuste e scalabili.
