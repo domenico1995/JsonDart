@@ -17,7 +17,9 @@ I sistemi informativi si scambiano dati e informazioni attraverso un flusso di d
 
 ## JSON
 JSON (JavaScript Object Notation) è un formato molto utilizzato oggi per lo scambio di informazioni. Questo formato è stato standardizzato per la prima volta nel 2013 all'interno dello standard ECMA-404, e successivamente è stato aggiornato nella sua seconda versione nel 2017 come parte dello standard ISO/IEC 21778. 
+
 È stato definito anche all’interno del RFC 8259. Dalla prima alla seconda versione dell’RFC 8259, sono state fatte alcune modifiche per rendere più facile capire e usare il formato JSON. 
+
 Queste modifiche includono spiegazioni extra per chiarire il significato di alcune idee, consigli nuovi su come usare JSON correttamente e nuovi esempi per aiutare a capire meglio come funziona. Inoltre, sono state aggiunte informazioni sulla sicurezza e su come gestire eventuali errori, per aiutare gli sviluppatori a fare applicazioni più sicure e solide che usano JSON per scambiare i dati.
 
 ECMA (European Computer Manufacturers Association) è un'associazione fondata nel 1961 che si occupa di standardizzazione nel settore informatico e dei sistemi di telecomunicazione. ISO/IEC 21778 è uno standard definito dall'ISO (Organizzazione internazionale per la normazione) e dall'IEC (Commissione elettrotecnica internazionale), due entità che collaborano nella definizione degli standard.
@@ -55,6 +57,7 @@ I nomi dei letterali dei letterali devono essere in minuscolo. Non sono ammessi 
 * true = %x74.72.75.65 : true
  
 Una struttura di oggetto è rappresentata da una coppia di parentesi graffe che circondano zero o più coppie di nome/valore. Un nome è una stringa. Dopo ogni nome viene inserito un solo due punti, separando il nome dal valore. Una singola virgola separa un valore da un nome seguente. 
+
 La sintassi risulta:
 oggetto = inizio-oggetto [ membro * (separatore-valore membro ) ] fine-oggetto
 membro = stringa separatore-nome valore
@@ -76,6 +79,7 @@ La parte frazionaria è costituita da un punto decimale seguito da un a o più c
 La parte esponenziale inizia con la lettera “E” (in maiuscolo o minuscolo) seguita da un segno più o meno opzionale e da una o più cifre decimali che rappresentano l’esponente.
 
 La specifica consente alle implementazioni di impostare limiti sul range e sula precisione dei numeri accettati, la precisione e il range dei numeri JSON possono variare a seconda dell’implementazione, ma per garantire l’interoperabilità, le implementazioni dovrebbero approssimare i numeri JSON entro la cifra prevista.
+
 Ad esempio, i numeri molto grandi come 1E400 o con molte cifre come il pi greco possono causare problemi di interoperabilità se il software che riceve questi numeri non ha la capacità di gestirli correttamente.
 Numeri speciali come infinito e NaN (Not a Number) non sono ammessi in JSON.
 
@@ -91,8 +95,11 @@ più = %x2V ; +
 zero = %x30 ; 0
 
 Le stringhe in JSON sono delimitate da virgolette e possono contenere qualsiasi carattere Unicode, ad eccezione di alcuni caratteri che devono essere sequenze di escape, ovvero il carattere virgolette doppie ("), la barra rovesciata (), e i caratteri di controllo nell’intervallo U+0000 a U+001F.
+
 Ogni carattere può essere una sequenza di escape. Se il carattere si trova nel Basic Multilingual Plane (U+0000 a U+FFFF), può essere rappresentato come una sequenza di escape di sei caratteri. 
+
 Questa sequenza inizia con una barra rovesciata (), seguita dalla lettera 'u' minuscola e quattro cifre esadecimali che codificano il punto di codice del carattere. Le lettere esadecimali da A ad F possono essere sia maiuscole che minuscole.
+
 In alternativa, alcuni caratteri comuni possono essere rappresentati in modo più compatto utilizzando una sequenza di escape di due caratteri.
 Per i caratteri estesi che non rientrano nel Basic Multilingual Plane, la loro rappresentazione è una sequenza di 12 caratteri, che codifica la coppia surrogata UTF-16 del carattere.
  
@@ -114,6 +121,7 @@ virgolette = %x22 ; “
 senza sequenza di escape = %x20-21 / %x23-5B / %x5D-10FFFF
  
 Tutte le stringhe in un testo JSON sono composte interamente da caratteri Unicode, anche se alcuni di essi sono sequenze di escape (cioè, rappresentati con la notazione “\u” seguita da un codice esadecimale), allora quel teso JSON è considerato interoperabile. 
+
 Ciò significa che tutte le implementazioni software che analizzano quel testo JSON dovrebbero essere d’accordo sul significato dei nomi e die valori delle stringhe all’interno degli oggetti e degli array.
 Comunque, la specifica JSON permette teoricamente la presenza di sequenza di bit che non possono rappresentare correttamente caratteri Unicode validi. 
 
@@ -162,7 +170,9 @@ Si possono notare vari tipi di valori: le stringhe per i nomi e i cognomi, i val
 ```
 
 Questo ulteriore esempio mostra come i dati possano essere organizzati in un formato strutturato e interoperabile come JSON, facilitando lo scambio e l'interpretazione delle informazioni tra diversi sistemi e applicazioni.	
+
 Un parser JSON è un componente software che converte un testo scritto in formato JSON in un’altra forma di rappresentazione, solitamente una struttura dati che il programma possa elaborare in modo più efficiente o significato . 
+
 Il parser deve essere in grado di accettare tutti i testi che rispettano la grammatica definita per il JSON. 
 Per le derivazioni o le estensioni del formato JSON bisogna fare una ulteriore considerazione. Le estensioni possono introdurre regole aggiuntive o modificare il comportamento standard del parser.
  
