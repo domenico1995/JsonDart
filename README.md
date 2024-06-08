@@ -2,7 +2,7 @@
 Progetto di parsing e visualizzazione.
 
 ## Indice
-- [Introruzione](#Introduzione)
+- [Introduzione](#Introduzione)
 - [JSON](#json)
 - [Dart](#dart)
 - [Knime](#Knime)
