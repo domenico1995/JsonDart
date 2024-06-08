@@ -107,24 +107,24 @@ Tutte le stringhe in un testo JSON sono composte interamente da caratteri Unicod
 Comunque, la specifica JSON permette teoricamente la presenza di sequenza di bit che non possono rappresentare correttamente caratteri Unicode validi. Questo può causare problemi, come quando una libreria tronca una stringa senza verificare se tale troncamento divide una coppia di surrogati UTF-16. In tali casi, il comportamento del software che riceve questi testi JSON contenenti tali valori imprevedibili, potendo restituire valori diversi per la lunghezza di una stringa o subire eccezioni fatali durante l’esecuzione.
 
 ```json
-	{
-	  "nome": "Paolo",
-	  "cognome": "Rossi",
-	  "età": 42,
-	  "sesso": "maschio",
-	  "sposato": true,
-	  "hobby": [
-	    "escursionismo",
-	    "giardinaggio",
-	    "cucina"
-	  ],
-	  "indirizzo": {
-	    "via": "Via Roma",
-	    "numero": 10,
-	    "città": "Milano",
-	    "cap": "20121"
-	  }
-	}
+{
+  "nome": "Paolo",
+  "cognome": "Rossi",
+  "età": 42,
+  "sesso": "maschio",
+  "sposato": true,
+  "hobby": [
+    "escursionismo",
+    "giardinaggio",
+    "cucina"
+  ],
+  "indirizzo": {
+    "via": "Via Roma",
+    "numero": 10,
+    "città": "Milano",
+    "cap": "20121"
+  }
+}
 ```
 
 L'esempio fornito illustra un documento JSON che contiene una serie di informazioni relative a persone. Ogni persona è rappresentata da un oggetto all'interno di un array. Ogni oggetto contiene diversi attributi, come il nome, il cognome, l'età e il sesso.
