@@ -232,7 +232,9 @@ Offre un ambiente visuale drag-and-drop per la creazione, l'esecuzione, l'integr
 Knime, grazie a queste sue caratteristiche, rientra nella categoria no-code (vedere paragrafo 2.6).
 Knime utilizza due concetti importanti: il nodo e il flusso di lavoro.
 L’interfaccia utente di Knime è composta da sei finestre principali ognuna con un proprio scopo. Tali finestre sono visibili una volta avviata l’applicazione di Knime.
- 
+
+![Linterfaccia-utente-di-KNIME](https://github.com/domenico1995/JsonDart/assets/46219063/f581017f-e9f5-4f0e-b27d-4d99e9313617)
+
 Figura 1 Interfaccia dell'ambiente di lavoro di Knime
 1. Explorer: è dove i diversi flussi di lavoro sono conservati e organizzato in una struttura gerarchica di cartelle. Tra le varie cartelle che sono presenti nell’Explorer vi sono: il server pubblico Knime con diversi flussi di lavoro di esempio strutturati per argomento da trarre per ispirazione e riadattare alle nostre esigenze; lo spazio My-Knime-hub, collegato al nostro spazio utente sulla piattaforma cloud chiamate Knime Hub, dove possiamo condividere o pubblicamente a tutti o renderli privati e visibili solo all’utente. 
 2. Node Repository: in questo spazio si trova il menu completo dei nodi Knime disponibili e pronti per essere usati nel flusso di lavoro. Sono organizzati per categorie e a volte per sottocategorie.
