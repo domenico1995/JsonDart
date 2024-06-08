@@ -260,8 +260,12 @@ Tali porte possono avere forma e colore diverso a seconda del tipo di contenuto 
 Figura 2 Esempio workflow editor
 
 Nella parte inferiore di ogni nodo, si trova un semaforo che segnala lo stato del nodo. 
+
 Se la luce rossa del semaforo è accesa indica che il nodo non è ancora pronto per fare il suo lavoro, potrebbe essere che alcuni dati richiesti in input non siano disponibili o che sia necessario qualche ulteriore fase di configurazione. 
-Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. 
+
+Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. 
+
+Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. 
 
 Possono apparire anche altre icone sul semaforo: 
 * Triangolo giallo con un punto esclamativo, segnala un warming, un potenziale errore. Rappresenta un insolito e potenziale errore che richiede la nostra attenzione.
