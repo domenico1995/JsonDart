@@ -234,7 +234,6 @@ Knime utilizza due concetti importanti: il nodo e il flusso di lavoro.
 L’interfaccia utente di Knime è composta da sei finestre principali ognuna con un proprio scopo. Tali finestre sono visibili una volta avviata l’applicazione di Knime.
 
 ![Linterfaccia-utente-di-KNIME](https://github.com/domenico1995/JsonDart/assets/46219063/f581017f-e9f5-4f0e-b27d-4d99e9313617)
-
 Figura 1 Interfaccia dell'ambiente di lavoro di Knime
 1. Explorer: è dove i diversi flussi di lavoro sono conservati e organizzato in una struttura gerarchica di cartelle. Tra le varie cartelle che sono presenti nell’Explorer vi sono: il server pubblico Knime con diversi flussi di lavoro di esempio strutturati per argomento da trarre per ispirazione e riadattare alle nostre esigenze; lo spazio My-Knime-hub, collegato al nostro spazio utente sulla piattaforma cloud chiamate Knime Hub, dove possiamo condividere o pubblicamente a tutti o renderli privati e visibili solo all’utente. 
 2. Node Repository: in questo spazio si trova il menu completo dei nodi Knime disponibili e pronti per essere usati nel flusso di lavoro. Sono organizzati per categorie e a volte per sottocategorie.
@@ -252,7 +251,8 @@ Nella parte inferiore è possibile scrivere un commento. Il commento permette di
 I nodi sono collegati attraverso connettori o delle porte, presenti a sinistra e a destra del quadrato del nodo. Per convenzione la parte sinistra del nodo indica l’input e la parte destra indica l’output. 
 
 Tali porte possono avere forma e colore diverso a seconda del tipo di contenuto che le attraversa: di forma triangolare indica il trasporto di tabelle di dati o dataset e rappresentano la maggior parte di esse ricadono in questa categoria, di forma quadrata trasportano modelli statistici, connessioni remote o immagini o di forma triangolare per le variabili.
- 
+
+![Knime_example](https://github.com/domenico1995/JsonDart/assets/46219063/c101dc9a-d962-4975-bd61-1d04064c445d)
 Figura 2 Esempio workflow editor
 
 Nella parte inferiore di ogni nodo, si trova un semaforo che segnala lo stato del nodo. Se la luce rossa del semaforo è accesa indica che il nodo non è ancora pronto per fare il suo lavoro, potrebbe essere che alcuni dati richiesti in input non siano disponibili o che sia necessario qualche ulteriore fase di configurazione. Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. 
