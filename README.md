@@ -54,7 +54,7 @@ Per iniziare a sviluppare applicazioni con Dart, è necessario scaricare e insta
 Webdev gestisce le dipendenze del progetto e avvia un server locale per la visualizzazione dell’applicazione durante lo sviluppo.
 La creazione di una nuova web app Dart è semplice grazie al comando 
 ```dart
-dart create-t web nomeprogetto’
+dart create-t web nomeprogetto
 ```
 Questo comando crea una struttura di base per la web app, inclusi i file main.dart per la logica dell’applicazione, un file HTML per la struttura della pagina web e un file CSS per lo stile.
 
