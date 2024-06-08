@@ -253,6 +253,7 @@ I nodi sono collegati attraverso connettori o delle porte, presenti a sinistra e
 Tali porte possono avere forma e colore diverso a seconda del tipo di contenuto che le attraversa: di forma triangolare indica il trasporto di tabelle di dati o dataset e rappresentano la maggior parte di esse ricadono in questa categoria, di forma quadrata trasportano modelli statistici, connessioni remote o immagini o di forma triangolare per le variabili.
 
 ![Knime_example](https://github.com/domenico1995/JsonDart/assets/46219063/c101dc9a-d962-4975-bd61-1d04064c445d)
+
 Figura 2 Esempio workflow editor
 
 Nella parte inferiore di ogni nodo, si trova un semaforo che segnala lo stato del nodo. Se la luce rossa del semaforo è accesa indica che il nodo non è ancora pronto per fare il suo lavoro, potrebbe essere che alcuni dati richiesti in input non siano disponibili o che sia necessario qualche ulteriore fase di configurazione. Luce gialla, il nodo ha tutto ciò che gli serve ed è pronto per essere pronto per essere eseguito, non appena gli viene dato l’ordine di esecuzione. Luce verde, indica che il nodo è stato eseguito con successo e i risultati sono disponibili per i connettori di uscita. 
