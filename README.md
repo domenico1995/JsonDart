@@ -74,6 +74,7 @@ Per i numeri la rappresentazione è molto simile a quella utilizzata nella maggi
 La parte intera può essere preceduta da un segno meno opzionale (per rappresentare numeri negativi) e consiste in una sequenza di cifre decimali. Non sono ammessi zeri iniziali.
 La parte frazionaria è costituita da un punto decimale seguito da un a o più cifre decimali.
 La parte esponenziale inizia con la lettera “E” (in maiuscolo o minuscolo) seguita da un segno più o meno opzionale e da una o più cifre decimali che rappresentano l’esponente.
+
 La specifica consente alle implementazioni di impostare limiti sul range e sula precisione dei numeri accettati, la precisione e il range dei numeri JSON possono variare a seconda dell’implementazione, ma per garantire l’interoperabilità, le implementazioni dovrebbero approssimare i numeri JSON entro la cifra prevista.
 Ad esempio, i numeri molto grandi come 1E400 o con molte cifre come il pi greco possono causare problemi di interoperabilità se il software che riceve questi numeri non ha la capacità di gestirli correttamente.
 Numeri speciali come infinito e NaN (Not a Number) non sono ammessi in JSON.
@@ -115,6 +116,7 @@ senza sequenza di escape = %x20-21 / %x23-5B / %x5D-10FFFF
 Tutte le stringhe in un testo JSON sono composte interamente da caratteri Unicode, anche se alcuni di essi sono sequenze di escape (cioè, rappresentati con la notazione “\u” seguita da un codice esadecimale), allora quel teso JSON è considerato interoperabile. 
 Ciò significa che tutte le implementazioni software che analizzano quel testo JSON dovrebbero essere d’accordo sul significato dei nomi e die valori delle stringhe all’interno degli oggetti e degli array.
 Comunque, la specifica JSON permette teoricamente la presenza di sequenza di bit che non possono rappresentare correttamente caratteri Unicode validi. 
+
 Questo può causare problemi, come quando una libreria tronca una stringa senza verificare se tale troncamento divide una coppia di surrogati UTF-16. In tali casi, il comportamento del software che riceve questi testi JSON contenenti tali valori imprevedibili, potendo restituire valori diversi per la lunghezza di una stringa o subire eccezioni fatali durante l’esecuzione.
 
 ```json
@@ -139,6 +141,7 @@ Questo può causare problemi, come quando una libreria tronca una stringa senza 
 ```
 
 L'esempio fornito illustra un documento JSON che contiene una serie di informazioni relative a persone. Ogni persona è rappresentata da un oggetto all'interno di un array. Ogni oggetto contiene diversi attributi, come il nome, il cognome, l'età e il sesso.
+
 Si possono notare vari tipi di valori: le stringhe per i nomi e i cognomi, i valori numerici per le età e le stringhe per i sessi, che possono essere "maschio" o "femmina". Inoltre, è presente un array associato all'attributo "hobby", che potrebbe contenere una lista di interessi o attività preferite, e un oggetto associato all'attributo "indirizzo", che potrebbe rappresentare dettagli relativi al luogo di residenza di ciascuna persona.  
 
 ```json              
@@ -159,7 +162,8 @@ Si possono notare vari tipi di valori: le stringhe per i nomi e i cognomi, i val
 ```
 
 Questo ulteriore esempio mostra come i dati possano essere organizzati in un formato strutturato e interoperabile come JSON, facilitando lo scambio e l'interpretazione delle informazioni tra diversi sistemi e applicazioni.	
-Un parser JSON è un componente software che converte un testo scritto in formato JSON in un’altra forma di rappresentazione, solitamente una struttura dati che il programma possa elaborare in modo più efficiente o significato . Il parser deve essere in grado di accettare tutti i testi che rispettano la grammatica definita per il JSON. 
+Un parser JSON è un componente software che converte un testo scritto in formato JSON in un’altra forma di rappresentazione, solitamente una struttura dati che il programma possa elaborare in modo più efficiente o significato . 
+Il parser deve essere in grado di accettare tutti i testi che rispettano la grammatica definita per il JSON. 
 Per le derivazioni o le estensioni del formato JSON bisogna fare una ulteriore considerazione. Le estensioni possono introdurre regole aggiuntive o modificare il comportamento standard del parser.
  
 Le estensioni possono rendere il codice meno interoperabile e più complesso, è importante usarle con cautela. Le estensioni dovrebbero essere implementate solo se necessario e se vi è una chiara comprensione degli effetti che potrebbero avere sulle altre parti del sistema.
@@ -175,9 +179,9 @@ Questo è reso possibile grazie a kit di sviluppo come Flutter e AngularDart.
 AngularDart è un kit di sviluppo di applicazioni web che sfrutta la potenza di Dart per creare interfacce utente dinamiche e complesse. 
 
 Basato sul framework JavaScript Angular, AngularDart offre un’esperienza di sviluppo moderna e scalabile per la creazione di applicazioni web complesse.
+
 Oltre alle sue capacità cross-platform, Dart offre una serie di funzionalità avanzate ch lo rendono un linguaggio potente per lo sviluppo di applicazioni moderne. Tra queste vi sono:
  * Tipizzazione Statica: Dart supporta la tipizzazione statica, che consente agli sviluppatori di individuare errori nel codice durante la compilazione anziché a tempo di esecuzione. Questo aiuta a migliorare la robustezza e la stabilità delle applicazioni.
-
 ```dart
 int somma(int a, int b) {
 	return a + b;
@@ -187,11 +191,8 @@ void main() {
 	print(somma(5, 10)); // Output: 15
 }
 ```
-
-
  * Garbage collection: Dart gestisce automaticamente la memoria allocata per gli oggetti non utilizzati mediante il garbage collection, semplificando il processo di gestione della memoria per gli sviluppatori.
  * Asincronia: Dart offre un supporto nativo per la programmazione asincrona, consentendo agli sviluppatori di scrivere codice che gestisce operazioni non bloccanti come chiamate di rete e operazioni di I/O in modo efficiente e conciso.
-
 ```dart
 Future<void> main() async {
 	print(‘Inizio’);
@@ -199,7 +200,6 @@ Future<void> main() async {
 print(‘Fine’);
 }
 ```
-
  * Librerie standard: Dart fornisce una ricca libreria standard che include una vasta gamma di funzionalità per la gestione di dati, la manipolazione di stringhe, l’elaborazione di file e molto altro ancora. Queste librerie aiutano gli sviluppatori a scrivere codice più efficiente e riducono la necessità di scrivere codice personalizzato per compiti comuni.
 
 Per iniziare a sviluppare applicazioni con Dart, è necessario scaricare e installare l’SDK di Dart. Una volta installato, è possibile utilizzare strumenti come Webdev per semplificare lo sviluppo di applicazioni web in Dart. 
