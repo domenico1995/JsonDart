@@ -106,24 +106,24 @@ senza sequenza di escape = %x20-21 / %x23-5B / %x5D-10FFFF
 Tutte le stringhe in un testo JSON sono composte interamente da caratteri Unicode, anche se alcuni di essi sono sequenze di escape (cioè, rappresentati con la notazione “\u” seguita da un codice esadecimale), allora quel teso JSON è considerato interoperabile. Ciò significa che tutte le implementazioni software che analizzano quel testo JSON dovrebbero essere d’accordo sul significato dei nomi e die valori delle stringhe all’interno degli oggetti e degli array.
 Comunque, la specifica JSON permette teoricamente la presenza di sequenza di bit che non possono rappresentare correttamente caratteri Unicode validi. Questo può causare problemi, come quando una libreria tronca una stringa senza verificare se tale troncamento divide una coppia di surrogati UTF-16. In tali casi, il comportamento del software che riceve questi testi JSON contenenti tali valori imprevedibili, potendo restituire valori diversi per la lunghezza di una stringa o subire eccezioni fatali durante l’esecuzione.
 '''json
-{
-  "nome": "Paolo",
-  "cognome": "Rossi",
-  "età": 42,
-  "sesso": "maschio",
-  "sposato": true,
-  "hobby": [
-    "escursionismo",
-    "giardinaggio",
-    "cucina"
-  ],
-  "indirizzo": {
-    "via": "Via Roma",
-    "numero": 10,
-    "città": "Milano",
-    "cap": "20121"
-  }
-}
+	{
+	  "nome": "Paolo",
+	  "cognome": "Rossi",
+	  "età": 42,
+	  "sesso": "maschio",
+	  "sposato": true,
+	  "hobby": [
+	    "escursionismo",
+	    "giardinaggio",
+	    "cucina"
+	  ],
+	  "indirizzo": {
+	    "via": "Via Roma",
+	    "numero": 10,
+	    "città": "Milano",
+	    "cap": "20121"
+	  }
+	}
 '''
 L'esempio fornito illustra un documento JSON che contiene una serie di informazioni relative a persone. Ogni persona è rappresentata da un oggetto all'interno di un array. Ogni oggetto contiene diversi attributi, come il nome, il cognome, l'età e il sesso.
 Si possono notare vari tipi di valori: le stringhe per i nomi e i cognomi, i valori numerici per le età e le stringhe per i sessi, che possono essere "maschio" o "femmina". Inoltre, è presente un array associato all'attributo "hobby", che potrebbe contenere una lista di interessi o attività preferite, e un oggetto associato all'attributo "indirizzo", che potrebbe rappresentare dettagli relativi al luogo di residenza di ciascuna persona.         
